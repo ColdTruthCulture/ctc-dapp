@@ -12,7 +12,7 @@ let disable_sell_button = false;
 // set to true to hide the royalties button in the wallet and collection manager.
 // useful if you want to use a custom marketplace and prevent confusion
 // as the royalties button is solely meant for the built-in marketplace, not for custom marketplaces
-let disable_royalties_button = false;
+let disable_royalties_button = true;
 
 // recommended block lists for adult collections on the marketplace
 // remove the switch below to display all offers from these collections in the public marketplace
@@ -23,7 +23,7 @@ switch(chain_id){
     // xDai
     case '64':
         blocked_collections = [
-            "0x601c54655927E15f897480Bf0964085892Ec2d4F".toLowerCase(), // haremtoken
+            //"0x601c54655927E15f897480Bf0964085892Ec2d4F".toLowerCase(), // haremtoken
             "0x0E015FaeEb2701D0b96eB2008cAdBF30A3C7A3de".toLowerCase(), // mcthot
         ];
         break;
@@ -43,7 +43,7 @@ switch(chain_id){
             "0xCBC27b95130A7EBF834DEd352fbD4F715A3f6e59".toLowerCase(), // EDEN KAIN
             "0xcbd86C3693F8F948bc0C7118C3Ff96F66f317Caa".toLowerCase(), // EDEN KAIN 2
             "0xc7921109FB1Bea0c19fCfB5288E700D606AE6B59".toLowerCase(), // animated art
-            "0x3C6C221EeF17bEa444d4B531A878b4373D3edeFC".toLowerCase(), // haremtoken
+            //"0x3C6C221EeF17bEa444d4B531A878b4373D3edeFC".toLowerCase(), // haremtoken
             "0xD8A6d085DfDB9498a263563f91Cc26bE57EFE4b6".toLowerCase(), // Blackie
             //"0x11F5780B54FCfF12fe791eafa34A60F770442d98".toLowerCase(), // anime token
             "0x48d76436F7596DDE45bDD384C375B71Cde3F0208".toLowerCase(), // oppai
