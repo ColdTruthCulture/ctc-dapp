@@ -1,0 +1,31 @@
+.main-panel .content {
+  &__welcome-text {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    font-weight: 300;
+    padding: .8rem 0;
+    margin-bottom: 2rem;
+    width: 80%;
+  }
+
+  .custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Baloo 2", "sans-serif";
+    @include respond(nav-collapse) {
+      margin-top: -3rem;
+      margin-left: 2rem;
+
+      &__dropdowns {
+        z-index: 1050;
+      }
+    }
+  
+    &__title {
+      color: var(--title-color);
+      font-size: 3.6rem;
+      font-weight: 700;
+    }
+  }
+}

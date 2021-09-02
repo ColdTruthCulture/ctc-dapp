@@ -1,0 +1,383 @@
+.dark-edition .sidebar,
+.light-edition .sidebar {
+  width: 28rem;
+ // background-color: var(--bg-secondary);
+  opacity: 1;
+  font-size: 1.6rem;
+  box-shadow: var(--shadow-primary);
+  background-image: repeating-radial-gradient(circle farthest-corner at 50% 50%,rgba(51,76,245,.03),rgba(150,61,219,.03) 25%,rgba(211,64,196,.03) 50%,rgba(228,124,135,.03) 75%,rgba(244,183,75,.03));
+
+  &::before {
+    background-color: var(--bg-tertiary);
+    font-size: 1.6rem;
+    //background-image: repeating-radial-gradient(circle farthest-corner at 50% 50%,rgba(51,76,245,.03),rgba(150,61,219,.03) 25%,rgba(211,64,196,.03) 50%,rgba(228,124,135,.03) 75%,rgba(244,183,75,.03));
+  }
+
+  // @include respond(big-desktop) {
+  //   width: 33rem;
+  // }
+
+  @include respond(nav-collapse) {
+    width: 260px;
+  }
+
+  .sidebar-wrapper {
+    width: 100%;
+    height: calc(100vh - 16rem);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 6rem;
+    overflow: hidden;
+    overflow-y: auto;
+
+    @include respond(big-desktop) {
+      padding-bottom: 0.7rem;
+    }
+    @include respond(tab-land) {
+      padding-bottom: 5rem;
+    }
+    @include respond(nav-collapse) {
+      padding-bottom: 4rem;
+    }
+    @include respond(tab-port) {
+      padding-bottom: 5.5rem;
+    }
+    @include respond(phone) {
+      padding-bottom: 8rem;
+    }
+
+    .sidebar-bottom {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      ul {
+        text-align: center;
+        font-size: 1.4rem;
+
+        a {
+          color: $grey-primary;
+        }
+
+        li:nth-child(2) {
+          margin: 1rem 0;
+        }
+      }
+    }
+  }
+}
+
+.dark-edition .sidebar .sidebar-wrapper ul.nav,
+.light-edition .sidebar .sidebar-wrapper ul.nav {
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+    height: 0.1rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--scrolbar-track);
+    border-radius: 10px;
+    box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow);
+  }
+  &::-webkit-scrollbar-track:hover {
+    background: var(--scrollbar-track-hover);
+  }
+}
+
+//fix for mobile sidebar
+.dark-edition .sidebar .sidebar-wrapper ul.nav.navbar-nav.nav-mobile-menu,
+.light-edition .sidebar .sidebar-wrapper ul.nav.navbar-nav.nav-mobile-menu {
+  display: none;
+}
+
+.dark-edition .sidebar .sidebar-wrapper ul.nav:first-child, .light-edition .sidebar .sidebar-wrapper ul.nav:first-child {
+  overflow: auto;
+  
+}
+
+//logo
+.dark-edition .sidebar .logo,
+.light-edition .sidebar .logo {
+  padding: 1.5rem 0;
+
+  &::after {
+    content: none;
+  }
+
+  a.simple-text:hover {
+    background-color: transparent;
+  }
+}
+
+//nav links
+.sidebar .nav {
+  margin-top: 0;
+
+  i {
+    font-size: 2.1rem;
+    color: var(--primary-color);
+    margin-right: 1.3rem;
+  }
+
+  p {
+    font-size: 1.18rem;
+    font-weight: 500;
+    letter-spacing: 0.32px;
+    color: #808080;
+    width: max-content;
+    overflow: hidden;
+  }
+
+  li > a {
+    margin: 1rem 2.4rem 0 !important;
+  }
+
+  //Important is there to override the collapsible sidebar menus
+  li.active:not(.collapsible) > a {
+    background-color: var(--primary-color) !important;
+  }
+
+  li.active:not(.collapsible) a i,
+  li.active:not(.collapsible) a p,
+  li.active a::after {
+    color: var(--bg-secondary) !important;
+  }
+
+  .nav-item:not(.nav-item.active):not(.collapsibleParent) a:hover {
+    background-color: var(--primary-hover-light);
+  }
+
+  li a,
+  li .dropdown-menu a {
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  //Collapsible menu items
+  li.collapsibleParent {
+    &:hover > a {
+      background-color: var(--primary-hover-light);
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &::after {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-right: 1.5rem;
+        content: "";
+        border-top: 0.3em solid;
+        border-right: 0.3em solid transparent;
+        border-bottom: 0;
+        border-left: 0.3em solid transparent;
+
+        color: var(--primary-color);
+      }
+
+      .collapsed {
+        border-radius: 0.8rem;
+      }
+
+      &[aria-expanded="true"] {
+        background-color: var(--primary-color);
+        border-radius: 0.8rem 0.8rem 0 0;
+
+        i,
+        p {
+          color: var(--bg-secondary);
+        }
+
+        i svg path:first-child {
+          fill: var(--bg-secondary) !important;
+        }
+
+        &::after {
+          color: var(--bg-secondary);
+          -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+        }
+      }
+    }
+
+    i svg {
+      width: 2.5rem;
+      position: relative;
+      top: 0.3rem;
+      left: 0.15rem;
+
+      path:first-child {
+        fill: var(--primary-color);
+      }
+    }
+
+    &.active {
+      i svg path:first-child {
+        fill: var(--bg-secondary) !important;
+      }
+    }
+  }
+
+  li.collapsible {
+    a {
+      //background-color: (var(--bg-primary),0.9);
+      
+     //background-color: rgba(var(--bg-primary), 0.9);
+      margin-top: 0 !important;
+      border-radius: 0;
+
+      i {
+        color: transparent;
+        font-size: 1.1rem;
+      }
+    }
+
+    &:last-child:not([style*="display:block"]) {
+      a {
+        border-radius: 0 0 0.8rem 0.8rem;
+      }
+    }
+
+    &.active {
+      i {
+        color: var(--primary-color);
+      }
+    }
+  }
+}
+
+//icons and rights
+.sidebar-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-footer);
+
+  &.icons {
+    margin: 4rem 0 1rem;
+    span a {
+      margin: 0 1rem;
+    }
+
+    span a:hover {
+      color: var(--heading-color);
+    }
+  }
+
+  &.rights {
+    span {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 0.24px;
+      text-align: center;
+
+      i {
+        font-size: 1rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.sidebar-divider {
+  border-bottom: 0.1rem solid $color-divider;
+  margin: 1.5rem 2.4rem;
+}
+
+//Collapsed menu
+.dark-edition .sidebar.collapsed,
+.light-edition .sidebar.collapsed {
+  width: 10rem;
+
+  .logo {
+    img {
+      width: 8.5rem;
+      height: 8.5rem;
+    }
+  }
+  .sidebar-wrapper {
+    .nav {
+      li > a {
+        margin: 1rem 2.6rem 0;
+      }
+      .nav-item {
+        width: max-content;
+
+        i {
+          margin: 0;
+        }
+
+        p {
+          width: 0px;
+          height: 0px;
+          overflow: auto;
+        }
+
+        &.collapsibleParent a::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.bs-popover-right {
+  border-radius: 0.8rem;
+
+  .arrow {
+    display: none;
+  }
+}
+.popover-body {
+  padding: 0;
+}
+
+.sidebarPopover {
+  a {
+    display: flex;
+    align-items: center;
+
+    margin-top: 0 !important;
+
+    border-radius: 0.8rem;
+
+    padding: 0.8rem;
+    p {
+      font-family: "Roboto Mono";
+      font-size: 1.6rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-align: left;
+      color: #6c757d;
+
+      margin: 0;
+    }
+
+    i {
+      color: transparent;
+      font-size: 1.2rem;
+      margin-right: 1.3rem;
+    }
+
+    &.active {
+      i {
+        color: var(--primary-color);
+      }
+    }
+  }
+}
