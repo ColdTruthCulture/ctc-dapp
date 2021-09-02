@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
+  <title>Home - Unifty</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Unifty_fav.png">
+ <link rel="icon" type="image/png" sizes="16x16" href="assets/img/Unifty_fav.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/handlebars.js"></script>
+  <script type="text/javascript" src="js/buffer.js"></script>
+  <script type="text/javascript" src="js/config.js?v=1.9.13"></script>
+  <script type="text/javascript" src="js/misc.js?v=1.9.13"></script>
+  <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="js/sidebar.js"></script>  
+  <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+  <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="assets/js/plugins/chartist.min.js"></script>
+  <script src="assets/js/plugins/bootstrap-notify.js"></script>
+  <script type="text/javascript" src="js/cookie.js?v=1.8"></script>
+  <script src="assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@ramp-network/ramp-instant-sdk@2.3.0/dist/ramp-instant-sdk.umd.js" integrity="sha256-heFylj/fcCZffQpQuqUmrk1e08vdaGcpw0w9mWGnbz4=" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+    integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+  <style type="text/css">
+    .dark-edition .modal a {
+      color: #00ff0d;
+      font-weight: 700;
+    }
+
+    .main-timeline {
+      position: relative
+    }
+
+    .main-timeline:before {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(60deg, #029eb1, #25b1c3);
+      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0
+    }
+
+    .main-timeline .timeline {
+      margin-bottom: 40px;
+      position: relative
+    }
+
+    .main-timeline .timeline:after {
+      content: "";
+      display: block;
+      clear: both
+    }
+
+    .main-timeline .icon {
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: none;
+    }
+
+    .main-timeline .icon:before,
+    .main-timeline .icon:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all 0.33s ease-out 0s
+    }
+
+    .main-timeline .icon:before {
+      background: linear-gradient(60deg, #029eb1, #25b1c3);
+      border: 2px solid #232323;
+      left: -3px
+    }
+
+    .main-timeline .icon:after {
+      border: 2px solid #25b1c3;
+      left: 3px
+    }
+
+    .main-timeline .timeline:hover .icon:before {
+      left: 3px
+    }
+
+    .main-timeline .timeline:hover .icon:after {
+      left: -3px
+    }
+
+    .main-timeline .date-content {
+      width: 50%;
+      float: left;
+      margin-top: 22px;
+      position: relative
+    }
+
+    .main-timeline .date-content:before {
+      content: "";
+      width: 36.5%;
+      height: 2px;
+      background: linear-gradient(60deg, #029eb1, #25b1c3);
+      margin: auto 0;
+      position: absolute;
+      top: 0;
+      right: 10px;
+      bottom: 0
+    }
+
+    .main-timeline .date-outer {
+      width: 125px;
+      height: 125px;
+      font-size: 16px;
+      text-align: center;
+      margin: auto;
+      z-index: 1
+    }
+
+    .main-timeline .date-outer:before,
+    .main-timeline .date-outer:after {
+      content: "";
+      width: 125px;
+      height: 125px;
+      margin: 0 auto;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      transition: all 0.33s ease-out 0s
+    }
+
+    .main-timeline .date-outer:before {
+      background: linear-gradient(60deg, #029eb1, #25b1c3);
+      border: 2px solid #232323;
+      left: -6px
+    }
+
+    .main-timeline .date-outer:after {
+      border: 2px solid #00ff0d;
+      left: 6px
+    }
+
+    .main-timeline .timeline:hover .date-outer:before {
+      left: 6px
+    }
+
+    .main-timeline .timeline:hover .date-outer:after {
+      left: -6px
+    }
+
+    .main-timeline .date {
+      width: 100%;
+      margin: auto;
+      position: absolute;
+      top: 27%;
+      left: 0
+    }
+
+    .main-timeline .month {
+      font-size: 18px;
+      font-weight: 700
+    }
+
+    .main-timeline .month {
+      color: #232323;
+    }
+
+    .main-timeline .year {
+      display: block;
+      font-size: 30px;
+      font-weight: 700;
+      color: #232323;
+      line-height: 36px
+    }
+
+    .main-timeline .timeline-content {
+      width: 50%;
+      padding: 20px 0 20px 50px;
+      float: right
+    }
+
+    .main-timeline .title {
+      font-size: 19px;
+      line-height: 24px;
+      margin: 0 0 15px 0
+    }
+
+    .main-timeline .description {
+      margin-bottom: 0
+    }
+
+    .main-timeline .timeline:nth-child(2n) .date-content {
+      float: right
+    }
+
+    .main-timeline .timeline:nth-child(2n) .date-content:before {
+      left: 10px
+    }
+
+    .main-timeline .timeline:nth-child(2n) .timeline-content {
+      padding: 20px 50px 20px 0;
+      text-align: right
+    }
+
+    @media only screen and (max-width: 991px) {
+      .main-timeline .date-content {
+        margin-top: 35px
+      }
+
+      .main-timeline .date-content:before {
+        width: 22.5%
+      }
+
+      .main-timeline .timeline-content {
+        padding: 10px 0 10px 30px
+      }
+
+      .main-timeline .title {
+        font-size: 17px
+      }
+
+      .main-timeline .timeline:nth-child(2n) .timeline-content {
+        padding: 10px 30px 10px 0
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      .main-timeline:before {
+        margin: 0;
+        left: 7px
+      }
+
+      .main-timeline .timeline {
+        margin-bottom: 20px
+      }
+
+      .main-timeline .timeline:last-child {
+        margin-bottom: 0
+      }
+
+      .main-timeline .icon {
+        margin: auto 0
+      }
+
+      .main-timeline .date-content {
+        width: 95%;
+        float: right;
+        margin-top: 0
+      }
+
+      .main-timeline .date-content:before {
+        display: none
+      }
+
+      .main-timeline .date-outer {
+        width: 110px;
+        height: 110px
+      }
+
+      .main-timeline .date-outer:before,
+      .main-timeline .date-outer:after {
+        width: 110px;
+        height: 110px
+      }
+
+      .main-timeline .date {
+        top: 30%
+      }
+
+      .main-timeline .year {
+        font-size: 24px
+      }
+
+      .main-timeline .timeline-content,
+      .main-timeline .timeline:nth-child(2n) .timeline-content {
+        width: 95%;
+        text-align: center;
+        padding: 10px 0
+      }
+
+      .main-timeline .title {
+        margin-bottom: 10px
+      }
+    }
+
+    .dark-edition .card .card-body .card-description {
+      color: #8b92a9;
+    }
+
+    .description,
+    .card-description,
+    .footer-big p {
+      color: #8b92a9;
+    }
+
+    .title,
+    .title a,
+    .card-title,
+    .card-title a,
+    .info-title,
+    .info-title a,
+    .footer-brand,
+    .footer-brand a,
+    .footer-big h5,
+    .footer-big h5 a,
+    .footer-big h4,
+    .footer-big h4 a,
+    .media .media-heading,
+    .media .media-heading a {
+      color: #8b92a9;
+    }
+
+    body {
+      color: #8b92a9;
+    }
+
+    .navbar,
+    .navbar-text a {
+      color: inherit;
+    }
+  </style>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <script src="js/themeDefault.js"></script>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="logo">
+      <a href="https://unifty.io" class="simple-text logo-normal">
+        <img src="assets/img/logo_transparent.png" width="90" border="0" />
+        <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">
+          xDAI chain
+        </div>
+      </a>
+    </div>
+
+    
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">
+            <i class="material-icons-round">home</i>
+            <p>Home</p>
+          </a>
+        </li>
+        <li class="nav-item" id="marketNavLink">
+          <a class="nav-link" href="market.html">
+            <i class="material-icons-round">storefront</i>
+            <p>NFT Market</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="collectibles.html">
+            <i class="material-icons-round">account_balance_wallet</i>
+            <p>Your Wallet</p>
+          </a>
+        </li>
+        <li class="nav-item bridgeNav">
+          <a class="nav-link" href="bridge.html">
+            <i class="material-icons-round">360</i>
+            <p>NFT Bridge</p>
+          </a>
+        </li>
+
+        <div id="accordion">
+          <!-- FARMS -->
+          <div>
+            <ul class="nav">
+              <li class="nav-item collapsibleParent">
+                <a class="nav-link" data-toggle="collapse" data-target="#collapseFarm" aria-expanded="false">
+                  <div>
+                    <i class="material-icons-round">grass</i>
+                    <p>Farms</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+
+            <div id="collapseFarm" class="collapse hide" data-parent="#accordion">
+              <ul class="nav">
+                <li class="nav-item collapsible" id="xdaiFarm">
+                  <a class="nav-link" href="https://unifty.io/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7">
+                    <i class="material-icons">fiber_manual_record</i>
+                    <p>Ice Cold OGs</p>
+                  </a>
+                </li>
+
+                <li class="nav-item collapsible" id="genesisFarm">
+                  <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
+                    <i class="material-icons">fiber_manual_record</i>
+                    <p>The Collective LP</p>
+                  </a>
+                </li>
+
+                <li class="nav-item collapsible" id="genesisFarm">
+                  <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
+                    <i class="material-icons">fiber_manual_record</i>
+                    <p>HNY Rare LP</p>
+                  </a>
+                </li>
+
+                <li class="nav-item collapsible" id="genesisFarm">
+                  <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
+                    <i class="material-icons">fiber_manual_record</i>
+                    <p>Ice Cold LP</p>
+                  </a>
+                </li>
+
+                <li class="nav-item collapsible" id="genesisFarm">
+                  <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
+                    <i class="material-icons">fiber_manual_record</i>
+                    <p>NSFW</p>
+                  </a>
+                </li>
+
+                <li class="nav-item collapsible" id="genesisFarm">
+                  <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
+                    <i class="material-icons">fiber_manual_record</i>
+                    <p>Music</p>
+                  </a>
+                </li>
+
+                <li class="nav-item collapsible" id="genesisFarm">
+                  <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
+                    <i class="material-icons">fiber_manual_record</i>
+                    <p>Music LP</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" target="_blank"
+                 href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
+                <i class="material-icons-round">find_replace</i>
+                <p>Get $COLD on Honeyswap</p>
+              </a>
+            </li>
+
+            <li class="nav-item" id="ramp-btn">
+              <a class="nav-link">
+                <i class="material-icons-round">attach_money</i>
+                <p>Buy crypto with RAMP</p>
+              </a>
+            </li>
+          </ul>
+          </div>
+
+          <div class="sidebar-text rights">
+            <span>
+              <i class="material-icons">copyright</i>
+              Unifty Development d.o.o.<br/>All rights reserved.
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- SIDEBAR END -->
+
+  <div class="main-panel">
+
+    <!-- NAV TOGGLER -->
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+      <div class="container-fluid">                
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+          aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- NAV TOGGLER END -->
+
+    <div class="content">
+
+      <!-- HEADER -->
+      <div class="custom-header">
+        <div class="custom-header__title">Cold Truth Culture NFTs</div>
+        <div class="custom-header__dropdowns">
+
+          <div class="dropdown ml-3 mr-3 dropdown--chains">
+            <button id="chainSelectionDropdown" class="btn btn-info dropdown-toggle" type="button"
+              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Ethereum
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="https://unifty.io/xdai/"><img src="assets/img/network-icons/xdai_logo.svg">xDai</a>
+            </div>            
+          </div>
+
+          <div class="theme-toggler">
+            <label for="themeSwitch" class="theme-options">
+              <span class="material-icons-round light-mode">
+                light_mode
+              </span>
+              <span class="material-icons-round dark-mode">
+                dark_mode
+              </span>
+            </label>
+            <input type="checkbox" id="themeSwitch" name="themeSwitch" />
+          </div>
+
+        </div>
+
+      </div>
+      <!-- HEADER END -->
+      
+      <div class="content__welcome-text">
+        <p>
+          Empowering NFT artists
+        </p>
+        </div>
+      <h1>CTC Farms</h1>
+      <h3 class="mb-5">NFT farms by Cold Truth Culture</h3>
+
+      <div class="container-fluid featured-farms mb-5">
+
+        <div class="card farm-card">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <img src="assets/img/icecold.png">
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Ice Cold OGs</h3>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseDesc19" role="button" aria-expanded="false" aria-controls="multiCollapseDesc19">
+              Read more...
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseDesc19">
+              <p class="card-description">
+                Farm NFTs for 1.50 xDAI, COLD tokens
+              </p>
+            </div>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseLinks19" role="button" aria-expanded="false" aria-controls="multiCollapseLinks19">
+              Open Farm
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseLinks19">
+              <a class="card-link"
+                 href="https://unifty.io/xdai/farm-view.html?address=0x4C0dB34dDfe13C86863c363b03d933f80599a3BD"><i
+                      class="fa fa-external-link"></i>Open Farm</a>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card farm-card">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <img src="assets/img/pab.png">
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">The Collective LP</h3>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseDesc20" role="button" aria-expanded="false" aria-controls="multiCollapseDesc20">
+              Read more...
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseDesc20">
+              <p class="card-description">
+                Farm NFTs for 3.50 xDAI, COLD/xDAI LP
+              </p>
+            </div>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseLinks20" role="button" aria-expanded="false" aria-controls="multiCollapseLinks20">
+              Open Farm
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseLinks20">
+              <a class="card-link"
+                 href="https://unifty.io/bsc/farm-view.html?address=0xDf9ef53757687653d537Dd6726C2a9C239584dbE"><i
+                      class="fa fa-external-link"></i>Open Farm</a>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card farm-card">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <img src="assets/img/smokiness.png">
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">HNY Rare LP</h3>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseDesc21" role="button" aria-expanded="false" aria-controls="multiCollapseDesc21">
+              Read more...
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseDesc21">
+              <p class="card-description">
+                Farm NFTs for 19.95 xDAI, COLD/HNY LP
+              </p>
+            </div>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseLinks21" role="button" aria-expanded="false" aria-controls="multiCollapseLinks21">
+              Open Farm
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseLinks21">
+              <a class="card-link"
+                 href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3"><i
+                      class="fa fa-external-link"></i>Open Farm</a>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card farm-card">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <img src="assets/img/panther.jpg">
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Ice Cold LP</h3>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseDesc22" role="button" aria-expanded="false" aria-controls="multiCollapseDesc22">
+              Read more...
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseDesc22">
+              <p class="card-description">
+                Farm NFTs for 69.95 xDAI, COLD/xDAI LP
+              </p>
+            </div>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseLinks22" role="button" aria-expanded="false" aria-controls="multiCollapseLinks22">
+              Open Farm
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseLinks22">
+              <a class="card-link"
+                 href="https://unifty.io/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7"><i
+                      class="fa fa-external-link"></i>Open Farm</a>
+
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="card farm-card">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <img src="assets/img/ctcnsfw.png">
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">NSFW</h3>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseDesc23" role="button" aria-expanded="false" aria-controls="multiCollapseDesc22">
+              Read more...
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseDesc23">
+              <p class="card-description">
+                Farm NFTs for 29.95 xDAI, COLD tokens
+              </p>
+            </div>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseLinks23" role="button" aria-expanded="false" aria-controls="multiCollapseLinks22">
+              Open Farm
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseLinks23">
+              <a class="card-link"
+                 href="https://unifty.io/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7"><i
+                      class="fa fa-external-link"></i>Open Farm</a>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card farm-card">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <img src="assets/img/songcover.gif">
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Music</h3>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseDesc24" role="button" aria-expanded="false" aria-controls="multiCollapseDesc22">
+              Read more...
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseDesc24">
+              <p class="card-description">
+                Farm NFTs for 4.95 xDAI, COLD tokens
+              </p>
+            </div>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseLinks24" role="button" aria-expanded="false" aria-controls="multiCollapseLinks22">
+              Open Farm
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseLinks24">
+              <a class="card-link"
+                 href="https://unifty.io/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7"><i
+                      class="fa fa-external-link"></i>Open Farm</a>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card farm-card">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <img src="assets/img/songcover.gif">
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Music LP</h3>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseDesc25" role="button" aria-expanded="false" aria-controls="multiCollapseDesc22">
+              Read more...
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseDesc25">
+              <p class="card-description">
+                Farm NFTs for 4.95 xDAI, COLD/xDAI LP
+              </p>
+            </div>
+            <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseLinks25" role="button" aria-expanded="false" aria-controls="multiCollapseLinks22">
+              Open Farm
+            </a>
+            <div class="collapse multi-collapse" id="multiCollapseLinks25">
+              <a class="card-link"
+                 href="https://unifty.io/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7"><i
+                      class="fa fa-external-link"></i>Open Farm</a>
+
+            </div>
+          </div>
+        </div>
+    </div>
+
+      <h1 class="mt-5">Featured Farms</h1>
+      <h3>Selected farms created by assosiates and crew members</h3>
+
+      <div type="button" class="add-new-card-container" onclick="location.href='mailto:crosschainapplications@gmail.com?subject=Farm%20Listing%20Request&body=Hello%2C%0A%0AI%27d%20like%20to%20request%20a%20featured%20listing.%20Here%20are%20the%20details%3A%0A%0AProject%20name%3A%20%2A%2A%2A%20enter%20project%20name%20%2A%2A%2A%0A%0ALink%20to%20logo%3A%20%2A%2A%2A%20link%20to%20logo%2C%20please%20no%20image%20attachments%20%2A%2A%2A%0A%0AProject%20description%3A%20%2A%2A%2A%20a%20small%20description%20of%20your%20project%20%2A%2A%2A%0A%0ALink%28s%29%20to%20farm%28s%29%3A%20%2A%2A%2A%20full%20link%28s%29%20to%20your%20farm%28s%29%20%2A%2A%2A%0A%0A';">
+                    <span class="material-icons">
+                    add_circle
+                  </span>Request a Listing!
+      </div>
+      
+      <div class="container-fluid featured-farms">
+
+          </div>
+
+        </div>
+
+        <!-- ALERT -->
+        <div class="modal fade" style="overflow-y: scroll;" id="alertModal" tabindex="-1" role="dialog"
+          aria-labelledby="alertModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="alertModalLabel">Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body modal-non-nft-content">
+
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-right: 0;">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+
+  </div>
+
+
+  </div>
+
+  </div>
+  <script src="js/ramp-init.js"></script>
+  <script src="js/themeSwitch.js"></script>
+</body>
+
+</html>
