@@ -73,17 +73,17 @@ body.light-edition {
   --scrollbar-thumb-hover: linear-gradient(13deg, #414166 14%,#00ff08 64%); }
 
 .light-edition {
-  --primary-color: #00fff7;
-  --primary-hover-light: rgba(32, 32, 96, .1);
-  --primary-hover-dark: #06064a;
-  --title-color: #202040;
+  --primary-color: #6f00ff9d;
+  --primary-hover-light: rgba(0, 0, 148, 0.281);
+  --primary-hover-dark: #6f00ff9d;
+  --title-color: #6f00ff9d;
   --bg-primary: #f4f7fb;
   --bg-secondary: #ffffff;
   --bg-secondary-light: rgba(255, 255, 255, .5);
   --bg-tertiary: #eef0f8;
-  --text-primary: #4c4c6f;
+  --text-primary: #6f00ff9d;
   --text-primary-light: rgba(76, 76, 111, .5);
-  --text-footer: rgba(76, 76, 111, .5);
+  --text-footer: #6f00ff9d;
   --heading-color: #202060;
   --subheading-color: rgba(76, 76, 111, .3);
   --modal-border-text: #a3abb2;
@@ -99,8 +99,8 @@ body.light-edition {
   --scrolbar-track: rgba(32, 32, 96, .1);
   --scrollbar-track-shadow: #f4f7fb;
   --scrollbar-track-hover: #cdcfd6;
-  --scrollbar-thumb: linear-gradient(0deg, #ccccdd 27%, rgba(32, 32, 96, .5) 60%);
-  --scrollbar-thumb-hover: linear-gradient(13deg, #b8b8c5 14%, #202060 64%); }
+  --scrollbar-thumb: linear-gradient(0deg, #ccccdd 27%, rgba(49, 32, 96, 0.5) 60%);
+  --scrollbar-thumb-hover: linear-gradient(13deg, #b8b8c5 14%, #6f00ff9d 64%); }
 
 .defaultPointer {
   --cursor-default: auto !important;
